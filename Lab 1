@@ -1,0 +1,47 @@
+# Name: Jordan Fuller
+# Course: CIS 261
+# Lab: Week 8 Lab 1 - Rectangle 
+
+class Rectangle:
+    def __init__(self, height, width):
+        self.height = height
+        self.width = width
+
+    def perimeter(self):
+        """Return the perimeter of the rectangle."""
+        return 2 * (self.height + self.width)
+
+    def area(self):
+        """Return the area of the rectangle."""
+        return self.height * self.width
+
+    def draw(self, char="*"):
+        """Print a text-based rectangle using the given character."""
+        for _ in range(self.height):
+            print(char * self.width)
+
+
+def main():
+        print("Rectangle Program")
+        print("-----------------")
+
+        # Get height and width from user
+        height = int(input("Enter the rectangle height: "))
+        width = int(input("Enter the rectangle width: "))
+
+        # Create Rectangle object
+        rect = Rectangle(height, width)
+
+        # Display perimeter and area
+        print()
+        print(f"Perimeter of the rectangle: {rect.perimeter()}")
+        print(f"Area of the rectangle: {rect.area()}")
+
+        # Draw the rectangle
+        print()
+        print("Rectangle drawing:")
+        rect.draw()
+
+
+if __name__ == "__main__":
+    main()
