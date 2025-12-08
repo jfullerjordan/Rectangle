@@ -8,40 +8,43 @@ class Rectangle:
         self.width = width
 
     def perimeter(self):
-        """Return the perimeter of the rectangle."""
         return 2 * (self.height + self.width)
 
     def area(self):
-        """Return the area of the rectangle."""
         return self.height * self.width
 
     def draw(self, char="*"):
-        """Print a text-based rectangle using the given character."""
-        for _ in range(self.height):
+        # Top row
+        print(char * self.width)
+
+        # Middle rows
+        for _ in range(self.height - 2):
+            print(char + " " * (self.width - 2) + char)
+
+        # Bottom row
+        if self.height > 1:
             print(char * self.width)
 
 
 def main():
-        print("Rectangle Program")
-        print("-----------------")
+    while True:
+        print("Rectangle Calculator")
 
-        # Get height and width from user
-        height = int(input("Enter the rectangle height: "))
-        width = int(input("Enter the rectangle width: "))
+        height = int(input("Height:     "))
+        width = int(input("Width:      "))
 
-        # Create Rectangle object
         rect = Rectangle(height, width)
 
-        # Display perimeter and area
-        print()
-        print(f"Perimeter of the rectangle: {rect.perimeter()}")
-        print(f"Area of the rectangle: {rect.area()}")
+        print(f"Perimeter:  {rect.perimeter()}")
+        print(f"Area:       {rect.area()}")
 
-        # Draw the rectangle
-        print()
-        print("Rectangle drawing:")
         rect.draw()
+
+        cont = input("\nContinue? (y/n): ")
+        if cont.lower() != "y":
+            break
 
 
 if __name__ == "__main__":
     main()
+
